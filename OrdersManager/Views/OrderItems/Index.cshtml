@@ -1,0 +1,84 @@
+﻿@model IEnumerable<OrdersManagerService.Models.OrderItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th  >
+                <s>@Html.DisplayNameFor(model => model.Name)</s> 
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if ((int)item.Status == 2 || (int)item.Status == 1)
+            {
+                <tr>
+                    <td>
+                        <s> @Html.DisplayFor(modelItem => item.Name)</s>  
+                    </td>
+                    <td style="color:#ff0000">
+                        <s> @Html.DisplayFor(modelItem => item.Status)</s>
+                        
+                    </td>
+                    <th>
+                        <s> @Html.DisplayFor(modelItem => item.Count)</s>
+                        
+                    </th>
+                    <th>
+                        <s>@Html.DisplayFor(modelItem => item.Weight)</s>
+                        
+                    </th>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            @if ((int)item.Status == 0)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Count)
+                    </th>
+
+                    <th>
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </th>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
