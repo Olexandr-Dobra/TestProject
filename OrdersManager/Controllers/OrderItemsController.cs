@@ -85,7 +85,7 @@ namespace OrdersManager.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Status,QuantityId")] OrderItem orderItem)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Status,QuantityId,Count,Weight")] OrderItem orderItem)
         {
             if (id != orderItem.Id)
             {
@@ -144,6 +144,12 @@ namespace OrdersManager.Controllers
         private async Task<bool> OrderItemExists(int id)
         {
             return (await orderManagerService.GetAllItemsAsync()).ToList().Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> DeleteOrder()
+        {
+            orderManagerService.ClearList();
+            return View(RedirectToAction("Index"));
         }
     }
 }

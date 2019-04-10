@@ -45,9 +45,10 @@ namespace OrdersManagerService.Services
             await repository.Update(mapper.MapToDb(order));
         }
 
-        public Task ClearList()
+        public async Task ClearList()
         {
-            throw new System.NotImplementedException();
+            repository.ClearList();
+
         }
     }
 }

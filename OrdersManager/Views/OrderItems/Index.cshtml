@@ -12,18 +12,10 @@
 <table class="table">
     <thead>
         <tr>
-            <th  >
-                <s>@Html.DisplayNameFor(model => model.Name)</s> 
-            </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+                Number
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Count)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Weight)
-            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -34,19 +26,19 @@
             {
                 <tr>
                     <td>
-                        <s> @Html.DisplayFor(modelItem => item.Name)</s>  
+                        <s> @Html.DisplayFor(modelItem => item.Name)</s> <s style="color:#ff0000" > @Html.DisplayFor(modelItem => item.Status)</s> <s> @Html.DisplayFor(modelItem => item.Count)</s> <s>@Html.DisplayFor(modelItem => item.Weight)</s>
                     </td>
                     <td style="color:#ff0000">
                         <s> @Html.DisplayFor(modelItem => item.Status)</s>
-                        
+
                     </td>
                     <th>
                         <s> @Html.DisplayFor(modelItem => item.Count)</s>
-                        
+
                     </th>
                     <th>
                         <s>@Html.DisplayFor(modelItem => item.Weight)</s>
-                        
+
                     </th>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
