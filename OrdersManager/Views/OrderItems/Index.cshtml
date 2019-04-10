@@ -22,24 +22,25 @@
     <tbody>
         @foreach (var item in Model)
         {
-            @if ((int)item.Status == 2 || (int)item.Status == 1)
+            @if ((int)item.Status == 2 )
             {
                 <tr>
                     <td>
-                        <s> @Html.DisplayFor(modelItem => item.Name)</s> <s style="color:#ff0000" > @Html.DisplayFor(modelItem => item.Status)</s> <s> @Html.DisplayFor(modelItem => item.Count)</s> <s>@Html.DisplayFor(modelItem => item.Weight)</s>
+                        <s> @Html.DisplayFor(modelItem => item.Name)</s> <s style="color:#ff0000"> @Html.DisplayFor(modelItem => item.Status)</s> <s> @Html.DisplayFor(modelItem => item.Count)</s> <s>@Html.DisplayFor(modelItem => item.Weight)</s>
                     </td>
-                    <td style="color:#ff0000">
-                        <s> @Html.DisplayFor(modelItem => item.Status)</s>
-
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                     </td>
-                    <th>
-                        <s> @Html.DisplayFor(modelItem => item.Count)</s>
-
-                    </th>
-                    <th>
-                        <s>@Html.DisplayFor(modelItem => item.Weight)</s>
-
-                    </th>
+                </tr>
+            }
+            @if ((int)item.Status == 1 )
+            {
+                <tr>
+                    <td>
+                        <s> @Html.DisplayFor(modelItem => item.Name)</s> <s style="color:#00ffff"> @Html.DisplayFor(modelItem => item.Status)</s> <s> @Html.DisplayFor(modelItem => item.Count)</s> <s>@Html.DisplayFor(modelItem => item.Weight)</s>
+                    </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
@@ -51,18 +52,9 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Name)
+                        @Html.DisplayFor(modelItem => item.Name)  @Html.DisplayFor(modelItem => item.Status)  @Html.DisplayFor(modelItem => item.Count) @Html.DisplayFor(modelItem => item.Weight)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
-                    <th>
-                        @Html.DisplayFor(modelItem => item.Count)
-                    </th>
 
-                    <th>
-                        @Html.DisplayFor(modelItem => item.Weight)
-                    </th>
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                         <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
