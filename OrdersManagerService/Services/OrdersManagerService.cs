@@ -47,8 +47,7 @@ namespace OrdersManagerService.Services
 
         public async Task ClearList()
         {
-            repository.ClearList();
-
+            await repository.ClearList();
         }
     }
 }

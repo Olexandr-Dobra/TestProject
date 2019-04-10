@@ -20,7 +20,6 @@ namespace OrdersManagerRepository.Repositories
 
             return allItems;
         }
-        
 
         public new async Task<OrderItem> Get(int id)
         {

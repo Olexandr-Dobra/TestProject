@@ -127,7 +127,7 @@ namespace OrdersManager.Controllers
             {
                 return NotFound();
             }
-           
+
 
             return View(orderItem);
         }
@@ -148,8 +148,8 @@ namespace OrdersManager.Controllers
 
         public async Task<IActionResult> DeleteOrder()
         {
-            orderManagerService.ClearList();
-            return View(RedirectToAction("Index"));
+            await orderManagerService.ClearList();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

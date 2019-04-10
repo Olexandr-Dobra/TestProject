@@ -8,7 +8,7 @@ namespace OrdersManagerService
     {
         public static void Register(IServiceCollection serviceCollection, string connectionString)
         {
-            serviceCollection.AddScoped<IOrderItemRepository, OrderItemRepository>();
+            serviceCollection.AddTransient<IOrderItemRepository, OrderItemRepository>();
             RepositoryRegistrator.Register(serviceCollection, connectionString);
         }
 

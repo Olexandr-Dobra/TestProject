@@ -31,7 +31,7 @@ namespace OrdersManager
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddScoped<IOrdersManagerService, OrdersManagerService.Services.OrdersManagerService>();
+            services.AddTransient<IOrdersManagerService, OrdersManagerService.Services.OrdersManagerService>();
             services.AddScoped<IMapper, Mapper>();
 
             DependencyRegistrator.Register(services, Configuration.GetConnectionString("OrdersManagerContext"));
